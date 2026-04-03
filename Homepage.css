@@ -1,0 +1,462 @@
+body {
+  background: white;
+  margin: 0;
+  font-family: monospace;
+  overflow-x: hidden;
+}
+
+/*Diamonds*/
+#layout {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  overflow: visible;
+  z-index: 10;
+}
+
+
+#shape, #shape1, #shape2, #shape3, #shape4, #shape5 {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+}
+
+#shape  { top: 60px; left: 110px; }
+#shape1 { top: 60px; left: 50%; transform: translateX(-50%); }
+#shape2 { top: 60px; right: 80px; }
+#shape3 { bottom: -580px; left: 110px; }
+#shape4 { bottom: -580px; left: 50%; transform: translateX(-50%); }
+#shape5 { bottom: -580px; right: 80px; }
+
+
+.diamond, .diamond1, .diamond2,
+.diamond3, .diamond4, .diamond5 {
+  width: 35px;
+  height: 35px;
+  border: 3px solid black;
+  background: transparent;
+  position: relative;
+  transform: rotate(45deg);
+  top: 0;
+  left: 0;
+  margin: 0;
+}
+
+
+#shape p, #shape1 p, #shape2 p,
+#shape3 p, #shape4 p, #shape5 p {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  font-size: 10px;
+  color: black;
+}
+
+
+[class^="texttop"] {
+  bottom: calc(100% + 25px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+[class^="textbottom"] {
+  top: calc(100% + 25px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+[class^="textleft"] {
+  right: calc(100% + 25px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
+[class^="textright"] {
+  left: calc(100% + 25px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.diamond, .diamond1, .diamond2,
+.diamond3, .diamond4, .diamond5 {
+  transition: background 0.2s ease;
+}
+
+/*for brackets*/
+.corners {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+#shape:hover .corners,
+#shape1:hover .corners,
+#shape2:hover .corners,
+#shape3:hover .corners,
+#shape4:hover .corners,
+#shape5:hover .corners {
+  opacity: 1;
+}
+
+.corners span {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-color: black;
+  border-style: solid;
+}
+
+.tl { top: 0; left: 0; border-width: 2px 0 0 2px; }
+.tr { top: 0; right: 0; border-width: 2px 2px 0 0; }
+.bl { bottom: 0; left: 0; border-width: 0 0 2px 2px; }
+.br { bottom: 0; right: 0; border-width: 0 2px 2px 0; }
+
+/*about and contact*/
+#menu {
+  position: absolute;
+  top: 250%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  box-sizing: border-box;
+   z-index: 10;
+
+  opacity: 0;
+  transition: opacity 1.5s ease;
+
+  pointer-events: none;
+
+}
+
+#menu.show {
+  opacity: 1;
+
+  pointer-events: all;
+}
+
+#menu p {
+  margin: 0;
+  font-size: 12px;
+  color: green;
+}
+/*For hover brackets*/
+#menu p {
+  position: relative;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+#menu p span {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-color: black;
+  border-style: solid;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+#menu p:hover span {
+  opacity: 1;
+}
+
+#menu p .tl { top: 0; left: 0; border-width: 2px 0 0 2px; }
+#menu p .tr { top: 0; right: 0; border-width: 2px 2px 0 0; }
+#menu p .bl { bottom: 0; left: 0; border-width: 0 0 2px 2px; }
+#menu p .br { bottom: 0; right: 0; border-width: 0 2px 2px 0; }
+
+/*Intro animation*/
+#intro {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: monospace;
+  font-size: 24px;
+  letter-spacing: 4px;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 1.5s ease;
+}
+
+#intro.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#hover {
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+
+#hover.show {
+  opacity: 1;
+}
+
+/*textContainer*/
+.textContainer{
+  font-family: "Blanquotey", sans-serif;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+canvas{
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/*carosual*/
+.banner {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  z-index: 0; 
+  transform-style: preserve-3d;
+   display: none;
+}
+.banner.active {
+  display: block; 
+}
+
+.banner .slider {
+  position: absolute;
+  width: 120px;
+  height: 210px;
+  top: 30%; /*change this to change the position of the card*/
+  left: calc(50% - 60px);
+  transform-style: preserve-3d;
+  transform: perspective(1000px) translateY(-50%);
+  z-index: 0;
+  animation: autoRun 20s linear infinite;
+}
+@keyframes autoRun{
+  from{
+    transform: perspective(1000px) translateY(-50%) rotateX(-5deg) rotateY(0deg);
+  }
+  to{
+    transform: perspective(1000px) translateY(-50%) rotateX(-5deg) rotateY(360deg);
+  }
+}
+
+.banner .slider .item {
+  position: absolute;
+  inset: 0;
+  transform:
+    rotateY(calc((var(--position) - 1) * (360deg / var(--quantity))))
+    translateZ(450px); /*change this to change the size of the card*/
+    overflow: hidden;
+}
+
+.banner .slider .item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/*banner text*/
+
+.content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateZ(0px);
+  pointer-events: none;
+  text-align: center;
+  animation: counterRotate 20s linear infinite; /* same duration as autoRun */
+}
+
+.content h1 {
+  font-size: 24px;
+  color: black;
+  font-family: monospace;
+}
+
+/*card flipping*/
+.card-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-overlay.active {
+  display: flex;
+}
+
+
+.card-enlarged {
+  width: 300px;
+  height: 530px;
+  perspective: 1000px;
+  position: relative;
+}
+
+
+.card-flip {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+  position: relative;
+}
+
+.card-flip.flipped {
+  transform: rotateY(180deg);
+}
+
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.card-back {
+  background: white;
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: monospace;
+  font-size: 16px;
+  color: black;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+
+.card-controls {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+  z-index: 1001;
+}
+
+.card-controls button {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  font-family: monospace;
+  font-size: 12px;
+  padding: 8px 20px;
+  cursor: pointer;
+  letter-spacing: 2px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.card-controls button:hover {
+  background: white;
+  color: black;
+}
+
+/*transition from IntroPage.html*/
+.swipe-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  z-index: 99999;
+  transition: top 0.8s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.swipe-overlay.exit {
+  top: 100%; 
+}
+
+/*Transition to ContactPage.html*/
+.swipe-right-overlay {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: black;
+  z-index: 99999;
+  transition: left 0.8s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.swipe-right-overlay.active {
+  left: 0; /* slides in from left */
+}
+
+/*Transiiton to AboutPage.html*/
+.swipe-left-overlay {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  background: black;
+  z-index: 99999;
+  transition: right 0.8s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.swipe-left-overlay.active {
+  right: 0; /* slides in from right */
+}
+
+/*swipe*/
+.swipe-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  z-index: 99999;
+  transition: top 0.8s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.swipe-overlay.exit {
+  top: 100%;
+}

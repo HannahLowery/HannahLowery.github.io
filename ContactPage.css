@@ -1,0 +1,191 @@
+body {
+  margin: 0;
+  font-family: monospace;
+  background: white;
+}
+
+
+#contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 50px; 
+  height: 100vh;
+  padding: 0 40px;
+  box-sizing: border-box;
+  color: black;
+}
+
+.contact-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+/* Line  */
+.contact-row::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: black;
+}
+
+.contact-row:first-child::before {
+  content: '';
+  position: absolute;
+  top: -15px; 
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: black;
+}
+
+/*hover color*/
+.contact-row:hover {
+  color: green;
+}
+
+.contact-row:hover .arrow {
+  transform: translateX(10px);
+}
+
+.contact-row:hover .tl,
+.contact-row:hover .tr,
+.contact-row:hover .bl,
+.contact-row:hover .br {
+  border-color: green;
+}
+
+/* Text */
+.contact-row .label {
+  font-size: 20px;
+  letter-spacing: 3px;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.contact-row .middle {
+  flex: 1;
+  text-align: center;
+  font-size: 16px;
+  letter-spacing: 2px;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.contact-row .arrow {
+  font-size: 20px;
+  display: inline-block;
+  white-space: nowrap;
+  transition: transform 0.3s ease;
+}
+
+/* Brackets */
+.contact-row .tl,
+.contact-row .tr,
+.contact-row .bl,
+.contact-row .br {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: black;
+  border-style: solid;
+}
+
+.contact-row .tl { top: 0; left: 0; border-width: 2px 0 0 2px; }
+.contact-row .tr { top: 0; right: 0; border-width: 2px 2px 0 0; }
+.contact-row .bl { bottom: 0; left: 0; border-width: 0 0 2px 2px; }
+.contact-row .br { bottom: 0; right: 0; border-width: 0 2px 2px 0; }
+
+/*tranition from Homepage.html*/
+.swipe-right-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  z-index: 99999;
+  transition: left 0.8s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.swipe-right-overlay.exit {
+  left: 100%; /* slides off to the right */
+}
+
+/*so it doesnt look like links*/
+.contact-row {
+  text-decoration: none;
+  color: black;
+}
+
+/*Back button*/
+#back {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+}
+
+.back-btn {
+  position: relative;
+  padding: 10px 20px;
+  margin: 0;
+  font-family: monospace;
+  font-size: 14px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.back-btn:hover {
+  color: green;
+}
+
+.back-btn:hover .tl,
+.back-btn:hover .tr,
+.back-btn:hover .bl,
+.back-btn:hover .br {
+  border-color: green;
+}
+
+.back-btn .tl,
+.back-btn .tr,
+.back-btn .bl,
+.back-btn .br {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-color: black;
+  border-style: solid;
+  transition: border-color 0.3s ease;
+}
+
+.back-btn .tl { top: 0; left: 0; border-width: 2px 0 0 2px; }
+.back-btn .tr { top: 0; right: 0; border-width: 2px 2px 0 0; }
+.back-btn .bl { bottom: 0; left: 0; border-width: 0 0 2px 2px; }
+.back-btn .br { bottom: 0; right: 0; border-width: 0 2px 2px 0; }
+
+/* swipe overlay */
+.swipe-right-overlay {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: black;
+  z-index: 99999;
+  transition: left 0.8s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.swipe-right-overlay.active {
+  left: 0;
+}

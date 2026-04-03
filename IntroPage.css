@@ -1,0 +1,146 @@
+body {
+  background: black;
+  margin: 0;
+  font-family: monospace;
+
+  animation: fadeIn 1s ease;
+  overflow: hidden;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.swipe-overlay {
+  position: fixed;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  z-index: 99999;
+  transition: top 0.8s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.swipe-overlay.active {
+  top: 0;
+}
+
+/*Header*/
+.container {
+  position: relative;
+  overflow: hidden;   
+}
+
+.ascii-text {
+  margin: 0;
+  white-space: pre;  
+  color: #00ff00;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  animation: slideDown 4s ease-out forwards;
+}
+
+@keyframes slideDown {
+  to {
+    transform: translateY(100%);
+  }
+}
+   
+/* Animation1 */
+.Animation1{
+  text-align: left;
+  margin-left: 1%;
+  color: white;
+  opacity: 0; 
+  animation: fadeIn 1.5s ease-out forwards;
+  animation-delay: 3s; 
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }}
+ 
+/*Typing*/
+#cat {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.typed {
+  display: inline-block;
+  border-right: 5px solid green;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  animation: typing 2s steps(16) 4.5s forwards,
+             cursor .4s step-end 4.5s 7 alternate,
+             cursorOff 0.01s 7s forwards;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes cursor {
+  50% { border-color: transparent; }
+}
+/*makes the cursor disappear*/
+@keyframes cursorOff {
+  to {
+    border-right: none;
+  }
+}
+
+/* Animation2 and ani1 popup*/
+#ani1,
+.Animation2 {
+    text-align: left;
+    margin-left: 1%;
+    color: white;
+    opacity: 0;              
+    animation: popIn 0s forwards;
+    animation-delay: 6.9s;  
+}
+
+@keyframes popIn {
+  to {
+    opacity: 1;
+  }
+}
+ /*Typing ani2*/
+#ani2 {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.typed2 {
+  display: inline-block;
+  border-right: 5px solid green;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  animation: typing 0.5s steps(2) 7.3s forwards,
+             cursor .4s step-end infinite alternate;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes cursor {
+  50% { border-color: transparent; }
+}
+
