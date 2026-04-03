@@ -10,6 +10,6 @@ document.querySelector('.back-btn').addEventListener('click', () => {
   document.getElementById('swipeBackOverlay').classList.add('active');
 
   setTimeout(() => {
-    window.location.href = 'HomePage.html';
+    window.location.href = 'Homepage.html';
   }, 800);
 });

@@ -59,7 +59,7 @@ document.querySelector('.back-btn').addEventListener('click', () => {
   }, 50);
 
   setTimeout(() => {
-    window.location.href = 'HomePage.html';
+    window.location.href = 'Homepage.html';
   }, 800);
 });
 
