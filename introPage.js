@@ -5,7 +5,7 @@ setTimeout(() => {
 
   // Then redirect once panel has fully covered screen
   setTimeout(() => {
-    window.location.href = 'homepage.html';
+    window.location.href = 'Homepage.html';
   }, 800); // matches transition duration
 
 }, 8000);
